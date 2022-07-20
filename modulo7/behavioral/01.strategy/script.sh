@@ -11,3 +11,15 @@ docker logs postgres
 docker exec -it postgres psql --username katrielkoga --dbname heroes
 CREATE TABLE warriors(id serial PRIMARY KEY, name VARCHAR (255) NOT NULL);
 SELECT * FROM warriors;
+
+# mongodb
+
+docker run \
+  --name mongodb \
+  -e MONGO_INITDB_ROOT_USERNAME=katrielkoga \
+  -e MONGO_INITDB_ROOT_PASSWORD=senhaadmin \
+  -p 27017:27017 \
+  -d \
+  mongo:4
+
+docker logs mongodb

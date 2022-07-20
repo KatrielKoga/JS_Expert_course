@@ -7,9 +7,14 @@ const postgresConnectionString =
 const postgresContext = new ContextStrategy(
 	new PostgresStrategy(postgresConnectionString)
 );
-const mongoDbStrategy = new ContextStrategy(new MongoDbStrategy());
-
 await postgresContext.connect();
+
+const mongoDBConnectionString =
+	'mongodb://katrielkoga:senhaadmin@localhost:27017/heroes';
+const mongoDbContext = new ContextStrategy(
+	new MongoDbStrategy(mongoDBConnectionString)
+);
+await mongoDbContext.connect();
 
 const data = [
 	{
@@ -22,5 +27,15 @@ const data = [
 	},
 ];
 
-await postgresContext.create({ name: data[0].name });
-console.log(await postgresContext.read());
+const contextTypes = {
+	transaction: postgresContext,
+	activityLog: mongoDbContext,
+};
+
+for (const { type, name } of data) {
+	const context = contextTypes[type];
+	await context.create({ name: name + Date.now() });
+
+	console.log(type, context.dbStrategy.constructor.name);
+	console.log(await context.read());
+}
