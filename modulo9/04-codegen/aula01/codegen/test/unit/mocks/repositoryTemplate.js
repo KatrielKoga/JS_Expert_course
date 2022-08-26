@@ -6,7 +6,7 @@ export default class ProductRepository {
     return Promise.reject('method not implemented!')
   }
 
-  read ( query) {
+  read (query) {
     return Promise.reject('method not implemented!')
   }
 

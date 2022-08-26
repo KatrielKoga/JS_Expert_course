@@ -1,3 +1,5 @@
 import repositoryTemplateMock from './repositoryTemplate.js';
+import serviceTemplateMock from './serviceTemplate.js';
+import factoryTemplateMock from './factoryTemplate.js';
 
-export { repositoryTemplateMock };
+export { repositoryTemplateMock, serviceTemplateMock, factoryTemplateMock };
