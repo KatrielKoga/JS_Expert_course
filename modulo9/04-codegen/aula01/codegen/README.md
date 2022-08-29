@@ -1,6 +1,6 @@
 # Task Checklist
 
-- [ ] creates `src` main folder if it not exists
+- [x] creates `src` main folder if it not exists
 
 - [ ] creates `repository` layer
 
