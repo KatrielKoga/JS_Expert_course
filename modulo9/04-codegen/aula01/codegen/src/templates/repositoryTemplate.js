@@ -26,9 +26,11 @@ export default class $$componentNameRepository {
 export function repositoryTemplate(componentName) {
 	return {
 		fileName: `${componentName}Repository`,
-		template: template.replaceAll(
-			componentNameAnchor,
-			Util.upperCaseFirstLetter(componentName)
-		),
+		template: template
+			.toString()
+			.replaceAll(
+				componentNameAnchor,
+				Util.upperCaseFirstLetter(componentName)
+			),
 	};
 }
