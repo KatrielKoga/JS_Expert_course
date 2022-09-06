@@ -43,7 +43,9 @@ export async function createFiles({
 			...dependencies
 		);
 
-		const fileName = `${targetFolder}/${Util.lowerCaseFirstLetter(className)}`;
+		const fileName = `${targetFolder}/${Util.lowerCaseFirstLetter(
+			className
+		)}.js`;
 		pendingFilesToWrite.push({ fileName, txtFile });
 	}
 
